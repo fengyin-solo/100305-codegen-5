@@ -28,6 +28,47 @@ class EntryPayload(BaseModel):
     remark: str | None = None
 
 
+class TransferCreatePayload(BaseModel):
+    """申请一张调拨单；调拨单号可由调用方给出，重复提交按原单返回。"""
+
+    调拨单号: str | None = None
+    源仓库: str
+    目标仓库: str
+    备件型号: str
+    数量: int = Field(gt=0)
+    申请人: str | None = None
+    备注: str | None = None
+
+
+class OperatorPayload(BaseModel):
+    """调拨单流转动作：只带操作员与备注，状态往哪走由单据当前状态决定。"""
+
+    operator: str = ""
+    remark: str | None = None
+
+
+class IssueCreatePayload(BaseModel):
+    """登记一张出库单（领用出库，与调拨分开记账）。"""
+
+    仓库: str
+    备件型号: str
+    数量: int = Field(gt=0)
+    operator: str = ""
+    领用人: str | None = None
+    备注: str | None = None
+
+
+class BalanceAdjustPayload(BaseModel):
+    """直接调整某仓某型号的结存：只有本仓保管员能过这关。"""
+
+    仓库: str
+    备件型号: str
+    调整后结存: int = Field(ge=0)
+    安全库存: int | None = Field(default=None, ge=0)
+    operator: str = ""
+    备注: str | None = None
+
+
 
 class SiteEntry(BaseModel):
     """基站明细结构。"""

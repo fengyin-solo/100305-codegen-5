@@ -21,6 +21,7 @@ const Electricbill = () => import('@/views/electricbill/index.vue')
 const Demolition = () => import('@/views/demolition/index.vue')
 const Emergency = () => import('@/views/emergency/index.vue')
 const Energyeff = () => import('@/views/energyeff/index.vue')
+const Sparepart = () => import('@/views/sparepart/index.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -46,6 +47,7 @@ const router = createRouter({
     { path: '/demolition', name: 'demolition', component: Demolition },
     { path: '/emergency', name: 'emergency', component: Emergency },
     { path: '/energyeff', name: 'energyeff', component: Energyeff },
+    { path: '/sparepart', name: 'sparepart', component: Sparepart },
   ],
 })
 
