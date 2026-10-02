@@ -21,6 +21,9 @@ const Electricbill = () => import('@/views/electricbill/index.vue')
 const Demolition = () => import('@/views/demolition/index.vue')
 const Emergency = () => import('@/views/emergency/index.vue')
 const Energyeff = () => import('@/views/energyeff/index.vue')
+const SpareLedger = () => import('@/views/spare/ledger.vue')
+const SpareTransfers = () => import('@/views/spare/transfers.vue')
+const SpareRestock = () => import('@/views/spare/restock.vue')
 
 const router = createRouter({
   history: createWebHistory(),
@@ -46,6 +49,9 @@ const router = createRouter({
     { path: '/demolition', name: 'demolition', component: Demolition },
     { path: '/emergency', name: 'emergency', component: Emergency },
     { path: '/energyeff', name: 'energyeff', component: Energyeff },
+    { path: '/spare/ledger', name: 'spare-ledger', component: SpareLedger },
+    { path: '/spare/transfers', name: 'spare-transfers', component: SpareTransfers },
+    { path: '/spare/restock', name: 'spare-restock', component: SpareRestock },
   ],
 })
 
